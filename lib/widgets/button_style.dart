@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:payment_ui/utils/color.dart';
 import 'package:payment_ui/utils/typhograpy.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Btn extends StatelessWidget {
-  const Btn({super.key});
+  final ColorApp colorApp = ColorApp();
+  final TextStyleApp textStyleApp = TextStyleApp();
+  Btn(
+      {super.key,
+      required this.name,
+      required this.bgColorBtn,
+      required this.iconBtn});
+  final String name;
+  final Color bgColorBtn;
+  final Icon iconBtn;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
-        color: primaryCol,
+        color: bgColorBtn,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -20,24 +28,21 @@ class Btn extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-                color: quartiaryCol, borderRadius: BorderRadius.circular(12)),
+                color: colorApp.quartiaryCol,
+                borderRadius: BorderRadius.circular(12)),
             child: Center(
-              child: Icon(
-                Ionicons.send,
-                color: tertiaryCol,
-                size: 18,
-              ),
+              child: iconBtn,
             ),
           ),
           const SizedBox(
             width: 12,
           ),
-          Text(
-            "Send",
-            style: GoogleFonts.poppins(
-                fontSize: 10,
-                fontWeight: FontWeight.normal,
-                letterSpacing: 0.8),
+          Expanded(
+            child: Text(
+              name,
+              style: textStyleApp.subHead3.copyWith(
+                  color: colorApp.textColWhite, fontWeight: FontWeight.normal),
+            ),
           )
         ],
       ),

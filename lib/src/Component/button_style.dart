@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:payment_ui/utils/color.dart';
-import 'package:payment_ui/utils/typhograpy.dart';
+import 'package:payment_ui/src/utils/color.dart';
+import 'package:payment_ui/src/utils/typhograpy.dart';
 
 class Btn extends StatelessWidget {
   final ColorApp colorApp = ColorApp();

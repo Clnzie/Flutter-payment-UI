@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_ui/src/Component/card_kitties.dart';
+import 'package:payment_ui/src/Component/custom_chips.dart';
+import 'package:payment_ui/src/Component/custom_tile.dart';
 import 'package:payment_ui/src/utils/color.dart';
 import 'package:payment_ui/src/utils/typhograpy.dart';
 import 'package:payment_ui/src/Component/button_style.dart';
@@ -21,68 +23,59 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorApp.bgCol,
       body: ListView(
         children: [
           const SizedBox(
             height: 45,
           ),
-          Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(12)),
-              )
-            ],
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                    child: Btn(
-                  name: "Send",
-                  bgColorBtn: colorApp.primaryCol,
-                  iconBtn: Icon(
-                    Ionicons.send_sharp,
-                    color: colorApp.tertiaryCol,
-                    size: 24,
-                  ),
-                )),
-                const SizedBox(
-                  width: 10,
+                Row(
+                  children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Hello, Clenzie",
+                      overflow: TextOverflow.ellipsis,
+                      style: textStyleApp.subHead2.copyWith(
+                          color: colorApp.textColBlue,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.w900),
+                    )
+                  ],
                 ),
-                Expanded(
-                    child: Btn(
-                  name: "Request",
-                  bgColorBtn: colorApp.secondaryCol,
-                  iconBtn: Icon(
-                    SolarIconsBold.download,
-                    color: colorApp.tertiaryCol,
-                    size: 24,
-                  ),
-                )),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Ionicons.search),
+                      iconSize: 24,
+                      color: colorApp.primaryCol,
+                    ),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: colorApp.textColGray,
+                          borderRadius: BorderRadius.circular(12)),
+                    )
+                  ],
+                )
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            height: 110,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return CardKitties();
-              },
-            ),
-          )
         ],
       ),
     );

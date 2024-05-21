@@ -13,4 +13,7 @@ class ColorApp {
   Color textColWhite = const Color(0xfffefffe);
   Color textColPurple = const Color(0xff210a3e);
   Color textColGray = const Color.fromARGB(255, 135, 135, 137);
+
+  Color iconColPrimary = const Color(0xff23083D);
+  Color iconColSecondary = const Color(0xff7727DF);
 }

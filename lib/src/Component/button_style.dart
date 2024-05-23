@@ -19,11 +19,11 @@ class Btn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      width: 150,
-      height: 122,
+      // width: 150,
+      // height: 122,
       decoration: BoxDecoration(
         color: bgColorBtn,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
         children: [

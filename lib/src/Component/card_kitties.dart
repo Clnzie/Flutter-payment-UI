@@ -12,12 +12,12 @@ class CardKitties extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 6),
+          margin: const EdgeInsets.symmetric(horizontal: 4),
           width: 140,
           height: 110,
           decoration: BoxDecoration(
             // color: Colors.red,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(14),
             image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
@@ -25,13 +25,13 @@ class CardKitties extends StatelessWidget {
           ),
         ),
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 6),
+          margin: const EdgeInsets.symmetric(horizontal: 4),
           width: 140,
           height: 110,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(14),
               gradient: LinearGradient(colors: [
-                colorApp.quartiaryCol.withOpacity(0.5),
+                colorApp.quartiaryCol.withOpacity(0.3),
                 colorApp.primaryCol.withOpacity(0.9)
               ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: Padding(
@@ -45,13 +45,13 @@ class CardKitties extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: textStyleApp.textS.copyWith(
                       color: colorApp.textColWhite,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.normal),
                 ),
                 Text(
                   "\$170.00",
                   style: textStyleApp.textL.copyWith(
                       color: colorApp.textColWhite,
-                      fontWeight: FontWeight.w800),
+                      fontWeight: FontWeight.w600),
                 )
               ],
             ),

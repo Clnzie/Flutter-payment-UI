@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_ui/src/Component/card_kitties.dart';
@@ -23,11 +25,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: colorApp.bgCol,
       body: ListView(
         children: [
           const SizedBox(
-            height: 45,
+            height: 25,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -103,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 3,
                   child: Container(
                     width: 200,
-                    height: 200,
+                    height: 175,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       color: const Color(0xffF1E4FE),
@@ -196,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 1,
                   child: Container(
                     width: 200,
-                    height: 200,
+                    height: 175,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       color: const Color(0xffF1E4FE),
@@ -248,9 +251,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Text(
                   "My Kitties",
-                  style: textStyleApp.textXL.copyWith(
+                  style: textStyleApp.subHead3.copyWith(
                       letterSpacing: 0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
                       color: colorApp.textColPurple),
                 ),
                 Text(
@@ -262,7 +265,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 15,
           ),
           SizedBox(
             height: 110,
@@ -318,28 +321,41 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          label: "home",
-          icon: Icon(Ionicons.home),
+      bottomNavigationBar: ClipRRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: BottomNavigationBar(
+              backgroundColor:
+                  Color.fromARGB(255, 244, 244, 244).withOpacity(0.75),
+              elevation: 0,
+              selectedItemColor: colorApp.primaryCol,
+              unselectedItemColor: colorApp.tertiaryCol,
+              type: BottomNavigationBarType.fixed,
+              showUnselectedLabels: false,
+              iconSize: 25,
+              showSelectedLabels: false,
+              items: [
+                BottomNavigationBarItem(
+                  label: "home",
+                  icon: const Icon(
+                    Icons.home_filled,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: "Saldo",
+                  icon: Icon(Ionicons.wallet),
+                ),
+                BottomNavigationBarItem(
+                  label: "Notification",
+                  icon: Icon(Icons.notifications_active_rounded),
+                ),
+                BottomNavigationBarItem(
+                  label: "Profil",
+                  icon: Icon(Ionicons.person_circle_sharp),
+                ),
+              ]),
         ),
-        BottomNavigationBarItem(
-          label: "home",
-          icon: Icon(Ionicons.home),
-        ),
-        BottomNavigationBarItem(
-          label: "home",
-          icon: Icon(Ionicons.home),
-        ),
-        BottomNavigationBarItem(
-          label: "home",
-          icon: Icon(Ionicons.home),
-        ),
-        BottomNavigationBarItem(
-          label: "home",
-          icon: Icon(Ionicons.home),
-        ),
-      ]),
+      ),
     );
   }
 }

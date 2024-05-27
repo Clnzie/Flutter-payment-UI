@@ -19,45 +19,46 @@ class CustomTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Container(
-                width: 55,
-                height: 55,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    color: const Color(0xffF1E4FE)),
-                child: Center(
-                  child: Icon(
-                    Icons.texture_rounded,
-                    color: colorApp.primaryCol,
-                    size: 40,
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      color: const Color(0xffF1E4FE)),
+                  child: Center(
+                    child: Icon(
+                      Icons.texture_rounded,
+                      color: colorApp.primaryCol,
+                      size: 40,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(nameTransaction,
+                const SizedBox(
+                  width: 12,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(nameTransaction,
+                          overflow: TextOverflow.ellipsis,
                           style: textStyleApp.subHead2.copyWith(
                               letterSpacing: 0,
                               color: colorApp.textColPurple,
                               fontWeight: FontWeight.w600)),
-                    ),
-                    Text(
-                      namePerson,
-                      style: textStyleApp.textS
-                          .copyWith(color: colorApp.textColGray),
-                    )
-                  ],
+                      Text(
+                        namePerson,
+                        style: textStyleApp.textS
+                            .copyWith(color: colorApp.textColGray),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Text(
             historyMoney,
